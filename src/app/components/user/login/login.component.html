@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center vh-100 container">
+  <div class="mx-auto text-center shadow-sm bg-white rounded p-5 my-5">
+    <form  #loginForm="ngForm" class="form-signin" (ngSubmit)="login()">
+      <i class="fa fa-users mb-2"></i>
+      <h1 class="h3 mb-3 font-weight-normal">Painel de Controle</h1>
+      <label for="username" class="sr-only">Usuário</label>
+      <input
+        [(ngModel)]="model.userName"
+        type="text"
+        id="username"
+        class="form-control mb-1"
+        placeholder="Usuário"
+        name="username"
+        required
+      >
+      <label for="password" class="sr-only">Password</label>
+      <input
+        [(ngModel)]="model.password"
+        type="password"
+        id="password"
+        class="form-control"
+        placeholder="Senha"
+        name="password"
+        required
+      >
+      <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+  </div>
+</div>
