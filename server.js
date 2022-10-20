@@ -3,12 +3,11 @@ const path = require('path');
 const app = express();
 
 const appName = 'capoeira-app';
-const directory = __dirname + `/dist/${appName}`;
 
-app.use(express.static(directory))
+app.use(express.static(__dirname + `/dist/${appName}`))
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(directory + '/index.html'))
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname + `/dist/${appName}/index.html`))
 });
 
 app.listen(process.env.PORT || 4200);
