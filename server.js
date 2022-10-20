@@ -1,13 +1,10 @@
-const express = require('express');
-const path = require('path');
-const app = express();
+let express = require('express');
+let app = express();
 
-const appName = 'capoeira-app';
-
-app.use(express.static(__dirname + `/dist/${appName}`))
+app.use(express.static(__dirname+'/dist/capoeira-app'))
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname + `/dist/${appName}/index.html`))
+  res.sendFile(path.join(__dirname+'/dist/capoeira-app/index.html'))
 });
 
-app.listen(process.env.PORT || 4200);
+app.listen(process.env.PORT || 8080);
