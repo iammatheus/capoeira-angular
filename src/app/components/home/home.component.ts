@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   public filiados: Filiado[] = [];
   thumbsSwiper: any;
   tipo: string;
+  public imagemImgur = '';
 
   constructor(
     private homeService: HomeService,
@@ -40,7 +41,10 @@ export class HomeComponent implements OnInit {
 
   onChange(file: any) {
     this.imgurService.upload(file.target.files[0])
-      .subscribe(res => console.log(res));
+      .subscribe(res => {
+        this.imagemImgur = res['data'].link;
+        console.log({'res: ': res, 'ImagemUrl': this.imagemImgur, 'res.data': res['data']})
+      });
   }
 
   public mostraImagem(imagemURL: string): string {
